@@ -1,0 +1,48 @@
+<app-header title="add new product"></app-header>
+
+<ion-content class="ion-padding">
+
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+        <ion-list-header>
+            <ion-label>New Product</ion-label>
+        </ion-list-header>
+
+        <ion-item>
+            <ion-label> Product Name </ion-label>
+            <ion-input type="text"
+                        placeholder="Enter Product Name"
+                        name="productName"
+                        [(ngModel)]="product.name"
+                        required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label> Price </ion-label>
+            <ion-input type="number" 
+                        placeholder="Enter Product Price"
+                        name="productPrice"
+                        [(ngModel)]="product.price"
+                        required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label> Quantity </ion-label>
+            <ion-input type="number" 
+                        placeholder="Enter Product Quantity"
+                        name="productQty"
+                        [(ngModel)]="product.quantity"
+                        required></ion-input>
+        </ion-item>
+
+        <ion-button [disabled]="form.invalid" class="center" color="secondary" type="submit">
+            Save
+        </ion-button>
+        <ion-button color="danger" routerLink="/home">
+            Cancel
+        </ion-button>
+
+
+    </form>
+
+</ion-content>

@@ -1,0 +1,32 @@
+.register {
+  margin-left: 1em;  
+  margin-top: 1em;
+}
+
+.btn-buy {
+    position: absolute;
+    height:130px;
+    width: 60px;
+    margin:auto;
+    margin-left: 10px;
+    z-index: 2;
+
+}
+
+.btn-manager {
+    height: 50px;
+    margin-left: 150px;
+}
+
+.btn {
+    height: 50px;
+}
+
+.total {
+    margin-left: 10px;
+    text-align: center;
+}
+
+.hightlighted {
+    background: yellow;
+}

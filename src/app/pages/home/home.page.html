@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary">Cash Register App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-grid class="register">
+    <ion-row col-2>
+      <ion-col>
+        <ng-container *ngIf="isSelected; else elseTemplate">
+          <ion-label size="16">{{currentProduct.name}}</ion-label>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <ion-label size="16">Type</ion-label>
+        </ng-template>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" color="danger" class="btn-manager" routerLink="/manager">Manager</ion-button>
+      </ion-col>
+    </ion-row>       
+        
+
+    <ion-row>
+      <ion-col>
+        <ion-row>
+          <ion-button shape="round" color="dark" class="btn" (click)="addNumber(1)">1</ion-button>
+          <ion-button shape="round" color="dark" class="btn" (click)="addNumber(2)">2</ion-button>
+          <ion-button shape="round" color="dark" class="btn" (click)="addNumber(3)">3</ion-button>
+        
+          <ion-label class="total">{{total}}</ion-label>
+        </ion-row>
+        
+      </ion-col>
+
+    </ion-row>
+    <ion-row></ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button shape="round" color="dark" class="btn" (click)="addNumber(4)">4</ion-button>
+        <ion-button shape="round" color="dark" class="btn" (click)="addNumber(5)">5</ion-button>
+        <ion-button shape="round" color="dark" class="btn" (click)="addNumber(6)">6</ion-button>
+        <ion-button shape="round" color="primary" class="btn-buy" (click)="buy()">Buy</ion-button>
+        
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button shape="round" color="dark" class="btn" (click)="addNumber(7)">7</ion-button>
+        <ion-button shape="round" color="dark" class="btn" (click)="addNumber(8)">8</ion-button>
+        <ion-button shape="round" color="dark" class="btn" (click)="addNumber(9)">9</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button [disabled]="true" shape="round" color="dark" class="btn">&nbsp;&nbsp;&nbsp;</ion-button>
+        <ion-button shape="round" color="dark" class="btn" (click)="addNumber(0)">0</ion-button>
+        <ion-button shape="round" color="secondary" class="btn" (click)="clear($event)">Clear</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>
+          {{qty}}
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+<ion-content>
+
+
+<ion-list *ngFor="let product of products" (click)="selectProduct($event, product)">
+  <ion-item [color]=" product.name === currentProduct.name ? 'warning' : '' ">
+    <ion-label >
+      <h3>{{product.name}}</h3>
+      <p>{{product.price}}</p>
+    </ion-label>
+    <ion-label slot="end" class="ion-text-end text-small" >{{product.quantity}}</ion-label>
+  </ion-item>
+</ion-list>
+  
+  
+
+</ion-content>

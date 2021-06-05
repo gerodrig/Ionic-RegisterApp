@@ -1,0 +1,31 @@
+<app-header title="restock"></app-header>
+
+<div class="ion-padding">
+
+    <ion-item>
+        <ion-label position="floating">Quantity</ion-label>
+        <ion-input type="number"
+                    placeholder="Select Product and Enter new quantity"
+                    [(ngModel)]="input"></ion-input>
+    </ion-item>
+    <ion-buttons >
+        <ion-button class="center" color="success" (click)="restock()">
+            Restock
+        </ion-button>
+        <ion-button color="danger" routerLink="/">
+            Cancel
+        </ion-button>
+    </ion-buttons>
+    
+</div>
+<ion-content class="ion-padding">
+    <ion-list *ngFor="let item of items" (click)="selectItem($event, item)">
+        <ion-item [color]=" item.name === currentItem.name ? 'warning' : '' ">
+            <ion-label >
+                <h3>{{item.name}}</h3>
+                </ion-label>
+                <ion-label slot="end" class="ion-text-end text-small" >{{item.quantity}}</ion-label>
+        </ion-item>
+    </ion-list>
+
+</ion-content>
